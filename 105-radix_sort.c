@@ -23,19 +23,32 @@ static int get_max(int *array, size_t size)
 }
 
 /**
- * list_push - push a value into a list of integers
+ * list_push - push a value onto the end of a list of integers
  * 
  * @list: pointer to the list of integers to which to push the value
  * @n: the value to push into the list
  */
 static void list_push(listint_t **list, int n)
 {
+	listint_t *last = *list;
 	listint_t *node = malloc(sizeof(listint_t));
 
 	node->n = n;
-	node->next = *list;
-	node->prev = NULL;
-	*list = node;
+
+	if (last)
+	{
+		while (last->next)
+			last = last->next;
+		node->next = NULL;
+		node->prev = last;
+		last->next = node;
+	}
+	else
+	{
+		node->next = NULL;
+		node->prev = NULL;
+		*list = node;
+	}
 }
 
 /**
