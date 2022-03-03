@@ -2,7 +2,7 @@
 
 /**
  * get_max - get the maximum value of an array of integers
- * 
+ *
  * @array: array from which to get the maximum value
  * @size: size of the array
  *
@@ -24,7 +24,7 @@ static int get_max(int *array, size_t size)
 
 /**
  * list_push - push a value onto the end of a list of integers
- * 
+ *
  * @list: pointer to the list of integers to which to push the value
  * @n: the value to push into the list
  */
@@ -53,9 +53,9 @@ static void list_push(listint_t **list, int n)
 
 /**
  * list_pop - pop the first value from a list of integers
- * 
+ *
  * @list: pointer to the list of integers from which to pop a value
- * 
+ *
  * Return: the first value in a list of integers
  */
 static int list_pop(listint_t **list)
@@ -70,7 +70,7 @@ static int list_pop(listint_t **list)
 
 /**
  * alloc_buckets - dynamically allocate buckets for each digit
- * 
+ *
  * @array: array of integers to be sorted
  * @size: number of elements in the array to be sorted
  * @factor: factor of digit on which to sort
@@ -89,12 +89,12 @@ static void alloc_buckets(
 		n = array[index++];
 		bucket = (n / factor) % 10;
 		list_push(&(*buckets)[bucket], n);
-	} 
+	}
 }
 
 /**
  * radix_sort - sort an array of integers using the LSD radix sort algorithm
- * 
+ *
  * @array: array of integers to be sorted
  * @size: number of elements in the array to be sorted
  */
